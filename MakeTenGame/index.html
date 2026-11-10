@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#a9e3f2">
+    <title>幻影雙五合十戰</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="game.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="game-card" aria-label="合十配對遊戲">
+        <section class="arena" id="arena" aria-label="氣球遊戲區">
+          <div class="game-bar">
+            <a class="back-button" href="index.html" aria-label="返回" title="返回">
+              <span aria-hidden="true">←</span>
+            </a>
+            <div class="timer" id="timer" role="timer" aria-label="剩餘時間 60 秒">
+              <span class="timer-icon" aria-hidden="true">⏱</span>
+              <span id="timer-value">01:00</span>
+            </div>
+            <button
+              class="music-button"
+              id="music-button"
+              type="button"
+              aria-label="背景音樂：開"
+              aria-pressed="true"
+              title="背景音樂：開"
+            ><span id="music-icon" aria-hidden="true">🔊</span></button>
+            <span class="music-status" id="music-status" role="status"></span>
+          </div>
+          <audio id="background-music" src="Audio/Balloon Adventure 1.mp3" preload="metadata" loop></audio>
+
+          <div class="cloud cloud-one" aria-hidden="true"></div>
+          <div class="cloud cloud-two" aria-hidden="true"></div>
+          <div class="sun" aria-hidden="true"></div>
+
+          <div class="balloon-field" id="balloons" aria-label="數字氣球"></div>
+
+          <div class="scene-footer">
+            <div class="character-wrap" id="character">
+              <div class="speech-bubble" id="feedback" role="status" aria-live="polite" hidden></div>
+              <img
+                class="character-image"
+                src="Image/StrawberryBearSitting.png"
+                alt="士多啤梨熊"
+              >
+              <span class="mood" id="mood" aria-hidden="true">😊</span>
+            </div>
+
+            <div class="answer-board" aria-label="目前配對">
+              <div class="equation">
+                <div class="answer-slot" id="first-choice">?</div>
+                <span class="operator" aria-hidden="true">+</span>
+                <div class="answer-slot" id="second-choice">?</div>
+                <span class="operator" aria-hidden="true">=</span>
+                <div class="target-number">10</div>
+              </div>
+              <p class="board-hint" id="board-hint">請選擇兩個合起來等於 10 的氣球</p>
+            </div>
+          </div>
+
+          <img
+            class="projectile"
+            id="projectile"
+            src="Image/Arrow.png"
+            alt=""
+            aria-hidden="true"
+          >
+
+          <div class="overlay" id="intro-overlay">
+            <div class="dialog-card intro-card">
+              <div class="story-characters" aria-hidden="true">🐻🍓🎈</div>
+              <p class="dialog-kicker">果園上空出現了幻影！</p>
+              <h2>數字氣球飛走了</h2>
+              <p class="dialog-copy">
+                數字精靈把自己變成氣球，在天空中四處飄浮。請幫助士多啤梨熊找出合起來等於
+                10 的配對，在一分鐘內射中更多氣球！
+              </p>
+              <button class="primary-button" id="start-button" type="button">開始</button>
+              <p class="dialog-note">準備好後，氣球便會從天空降下。</p>
+            </div>
+          </div>
+
+          <div class="overlay" id="result-overlay" hidden>
+            <div class="dialog-card result-card">
+              <div class="story-characters" aria-hidden="true">🐻🏆🍓</div>
+              <p class="dialog-kicker">天空任務完成！</p>
+              <h2>做得好！</h2>
+              <div class="result-stats">
+                <div><strong id="result-correct">0 / 0</strong><span>答對配對／總次數</span></div>
+                <div><strong id="result-wrong">0</strong><span>答錯次數</span></div>
+                <div><strong id="result-rounds">0</strong><span>完成輪數</span></div>
+              </div>
+              <button class="secondary-button" id="details-button" type="button" aria-expanded="false">
+                查看配對紀錄
+              </button>
+              <ol class="result-details" id="result-details" hidden></ol>
+              <button class="primary-button" id="replay-button" type="button">再玩一次</button>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
