@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>跳石過河</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="menu-page">
+  <!-- Shared icons -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-back" viewBox="0 0 24 24">
+      <path d="M14.5 5L7.5 12l7 7" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24">
+      <path d="M8 4.8v14.4a1 1 0 0 0 1.5.86l11.2-7.2a1 1 0 0 0 0-1.72L9.5 3.94A1 1 0 0 0 8 4.8z" fill="currentColor" />
+    </symbol>
+  </svg>
+
+  <!-- TODO: point to the game portal when it exists -->
+  <a class="back-link" href="./index.html" aria-label="返回">
+    <svg aria-hidden="true"><use href="#icon-back" /></svg>
+  </a>
+
+  <main class="menu-layout">
+    <div class="intro-stage">
+      <img class="intro-art" src="./Image/Introduction.png" alt="西瓜熊站在河邊，兩隻數字怪獸在河上飛" draggable="false" />
+
+      <!-- Overlay shares the artwork's 1280×714 coordinates, so the bubble tails always point at the monsters -->
+      <svg class="intro-overlay" viewBox="0 0 1280 714" role="img" aria-label="怪獸說：石頭上的物件是能量寶石，答對能跳上石頭，並儲起能量！">
+        <g class="sparkles" fill="#fff">
+          <path class="sparkle" d="M420 96 l4 -14 4 14 14 4 -14 4 -4 14 -4 -14 -14 -4z" />
+          <path class="sparkle" d="M628 140 l3 -11 3 11 11 3 -11 3 -3 11 -3 -11 -11 -3z" />
+          <path class="sparkle" d="M820 136 l4 -13 4 13 13 4 -13 4 -4 13 -4 -13 -13 -4z" />
+          <path class="sparkle" d="M600 226 l3 -10 3 10 10 3 -10 3 -3 10 -3 -10 -10 -3z" />
+        </g>
+
+        <!-- One line above both monsters; the tail points at the "9" monster -->
+        <g class="bubble-pop">
+          <g class="bubble-idle">
+            <path class="bubble-shadow" transform="translate(6 7)" d="M148 10 H832 V18 H840 V56 H832 V64 H753 V74 H745 V84 H738 V94 H736 V102 H730 V94 H728 V84 H721 V74 H713 V64 H148 V56 H140 V18 H148 Z" />
+            <path class="bubble-body" d="M148 10 H832 V18 H840 V56 H832 V64 H753 V74 H745 V84 H738 V94 H736 V102 H730 V94 H728 V84 H721 V74 H713 V64 H148 V56 H140 V18 H148 Z" />
+            <text class="bubble-text" x="490" y="46" text-anchor="middle">石頭上的物件是<tspan class="hl-red">能量寶石</tspan>，答對能跳上石頭，並儲起<tspan class="hl-blue">能量</tspan>！</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <form class="config-panel" action="./game.html" method="get">
+      <h1 class="game-title">跳石過河</h1>
+
+      <fieldset class="option-group group-mode">
+        <legend class="step-label">選擇玩法</legend>
+        <div class="option-grid mode-grid">
+          <label class="option">
+            <input class="option-input" type="radio" name="mode" value="quantity" checked />
+            <span class="card mode-card">
+              <span class="card-label">寶石數量</span>
+            </span>
+          </label>
+          <label class="option">
+            <input class="option-input" type="radio" name="mode" value="number" />
+            <span class="card mode-card">
+              <span class="card-label">數字大小</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="option-group group-level">
+        <legend class="step-label">選擇難度</legend>
+        <div class="option-grid level-grid">
+          <label class="option">
+            <input class="option-input" type="radio" name="difficulty" value="easy" checked />
+            <span class="card level-card level-easy">
+              <span class="card-label">簡單</span>
+            </span>
+          </label>
+          <label class="option">
+            <input class="option-input" type="radio" name="difficulty" value="normal" />
+            <span class="card level-card level-normal">
+              <span class="card-label">中等</span>
+            </span>
+          </label>
+          <label class="option">
+            <input class="option-input" type="radio" name="difficulty" value="hard" />
+            <span class="card level-card level-hard">
+              <span class="card-label">困難</span>
+            </span>
+          </label>
+        </div>
+      </fieldset>
+
+      <button class="start-btn" type="submit">
+        <svg class="play-icon" aria-hidden="true"><use href="#icon-play" /></svg>
+        <span>開始遊戲</span>
+      </button>
+    </form>
+  </main>
+</body>
+</html>
